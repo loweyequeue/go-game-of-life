@@ -1,0 +1,24 @@
+[tasks.clean]
+command = "rm"
+args = ["-rf", "AppDir"]
+
+[tasks.check_appimagetool]
+command = "which"
+args = ["appimagetool"]
+
+[tasks._build_image]
+shell_script = '''
+go build -o gameoflife
+rm -rf AppDir
+mkdir -p AppDir/usr/local/bin
+mv gameoflife AppDir/usr/local/bin/
+echo "#!/bin/bash" > AppDir/AppRun
+echo 'exec "$(dirname "$0")/usr/local/bin/gameoflife" "$@"' >> AppDir/AppRun
+chmod +x AppDir/AppRun
+cp app_image_assets/gameoflife.desktop AppDir/
+cp app_image_assets/icon.png AppDir/
+appimagetool AppDir
+'''
+
+[tasks.build]
+serial_tasks = ["check_appimagetool", "_build_image", "clean"]

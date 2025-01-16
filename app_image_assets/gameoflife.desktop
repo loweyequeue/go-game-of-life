@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=gameoflife
+Exec=gameoflife %U
+Icon=icon
+Type=Application
+Categories=Utility;
