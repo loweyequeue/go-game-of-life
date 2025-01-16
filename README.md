@@ -4,7 +4,7 @@ Implemented in Go to learn the language.
 
 ## Running
 
-Command syntax is quite simple, you need a map and optionally you can control the FPS. The default delay is 500ms resulting in ~2fps (it is not exact because it ignores the time it takes to calculate/render the frame)
+Command syntax is quite simple, you need a map and optionally you can control the FPS. The default delay is 200ms resulting in 5fps.
 
 `go run . <map_file> [frame_delay_ms]`
 
@@ -14,10 +14,12 @@ As an example (you should be able to copy-paste this)
 
 Or
 
-`go run . ./premade_maps/random_low.gol 50` (~20fps)
+`go run . ./premade_maps/random_low.gol 50` (20fps)
 
 
-As far as "fps" goes nearly anything works, but for me any delay under 15ms(~66fps) causes my terminal to struggle to keep up with the output.
+~As far as "fps" goes nearly anything works, but for me any delay under 15ms(\~66fps) causes my terminal to struggle to keep up with the output.~
+After some performance improvements I can render 1000fps on blinkshell (iOS). I also made the fps more accurate, a warning will be displayed if it cannot keep up with the requested speed. (I only get this warning at 0ms).  
+Do keep in mind that i.e. 1000fps makes it unwatchable.
 
 ## Building
 
