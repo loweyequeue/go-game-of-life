@@ -8,17 +8,13 @@ type Vector2D struct {
 
 // Normalize ensures that the vector is within the bounds of the board
 func (v *Vector2D) Normalize() *Vector2D {
-	if v.Y > BOARD_SIZE-1 {
-		v.Y = 0
-	}
+	v.Y %= BOARD_SIZE
 	if v.Y < 0 {
-		v.Y = BOARD_SIZE - 1
+		v.Y += BOARD_SIZE
 	}
-	if v.X > BOARD_SIZE-1 {
-		v.X = 0
-	}
+	v.X %= BOARD_SIZE
 	if v.X < 0 {
-		v.X = BOARD_SIZE - 1
+		v.X += BOARD_SIZE
 	}
 	return v
 }

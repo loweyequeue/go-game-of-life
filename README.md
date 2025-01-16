@@ -21,10 +21,10 @@ As far as "fps" goes nearly anything works, but for me any delay under 15ms(~66f
 
 ## Building
 
-You could build this if you wanted to for some reason.
-Either a `go build -o gameoflife(.exe)`.
+You could build this if you wanted to for some reason.  
+Simply run `go build -o gameoflife(.exe)`.
 
-Another options is to use [alchemist](https://github.com/jasonverbeek/alchemist) to create an AppImage.
+**linux only!** Another options is to use [alchemist](https://github.com/jasonverbeek/alchemist) to create an AppImage.
 
 `alchemist build`
 
